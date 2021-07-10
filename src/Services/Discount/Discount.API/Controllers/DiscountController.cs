@@ -20,6 +20,14 @@ namespace Discount.API.Controllers
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
+        [HttpGet(Name = "GeAllDiscount")]
+        [ProducesResponseType(typeof(IEnumerable<Coupon>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Coupon>>> GeAllDiscount()
+        {
+            var discount = await _repository.GetDiscount();
+            return Ok(discount);
+        }
+
         [HttpGet("{productName}", Name = "GetDiscount")]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupon>> GetDiscount(string productName)
