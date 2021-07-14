@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ordering.Application.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Ordering.Application.Contracts.Infrastructure
 {
     public interface IEmailService
     {
-        // Task<bool> SendEmail(Email email);
+        Task<bool> SendEmail(Email email);
     }
 }
